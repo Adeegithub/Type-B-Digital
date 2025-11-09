@@ -26,7 +26,7 @@ public class NameController {
         char firstLetter = Character.toUpperCase(name.charAt(0));
 
         // If the name is in First Half
-        if (firstLetter >= 'A' && firstLetter <= 'N'){
+        if (firstLetter >= 'A' && firstLetter <= 'M'){
             String capitalizedName = name.substring(0,1).toUpperCase() +
                     name.substring(1).toLowerCase();
 

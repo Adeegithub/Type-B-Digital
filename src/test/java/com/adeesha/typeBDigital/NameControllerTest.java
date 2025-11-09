@@ -42,22 +42,22 @@ public class NameControllerTest {
 
     // Valid Input with mixed casing
     @Test
-    @DisplayName("Should return 200 OK with 'Hello Mahela' for name 'mAHeLa'")
+    @DisplayName("Should return 200 OK with 'Hello Donald' for name 'dOnAlD'")
     void whenValidNameWithMixedCaseThenReturn200Ok() throws Exception {
         mockMvc.perform(get("/hello-world")
-                        .param("name", "mAHeLa"))
+                        .param("name", "dOnAlD"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.message").value("Hello Mahela"));
+                .andExpect(jsonPath("$.message").value("Hello Donald"));
     }
 
-    // Valid Input Edge case 'N'
+    // Valid Input Edge case 'M'
     @Test
-    @DisplayName("Should return 200 OK for 'Neymar' (edge case N)")
+    @DisplayName("Should return 200 OK for 'Mahela' (edge case M)")
     void whenValidNameAtEdgeThenReturn200Ok() throws Exception {
         mockMvc.perform(get("/hello-world")
-                        .param("name", "Neymar"))
+                        .param("name", "mahela"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.message").value("Hello Neymar"));
+                .andExpect(jsonPath("$.message").value("Hello Mahela"));
     }
 
     // Invalid Input Second Half
@@ -70,9 +70,9 @@ public class NameControllerTest {
                 .andExpect(jsonPath("$.error").value("Invalid Input"));
     }
 
-    // Invalid Input Edges Case 'O'
+    // Invalid Input Edges Case 'N'
     @Test
-    @DisplayName("Should return 400 Bad Request for 'Oscar' (edge case O)")
+    @DisplayName("Should return 400 Bad Request for 'Neymar' (edge case N)")
     void whenNameAtSecondHalfEdgeThenReturn400BadRequest() throws Exception {
         mockMvc.perform(get("/hello-world")
                         .param("name", "Oscar"))
